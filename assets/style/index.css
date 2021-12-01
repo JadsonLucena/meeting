@@ -1,0 +1,108 @@
+* {
+    outline: none;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f2f5;
+    overflow: hidden;
+
+    scroll-behavior: smooth;
+}
+
+
+
+header {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100px;
+    font-size: 35px;
+    color: #778899;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+main {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: calc(100% - 100px);
+}
+    main ul {
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: max-content;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+        main ul li {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 20px 30px;
+            transform: rotate(-30deg) skew(25deg);
+            cursor: pointer;
+        }
+        main ul li::before, main ul li::after, main ul li a, main ul li a img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 5px;
+        }
+            main ul li::before {
+                content: "";
+                pointer-events: none;
+                opacity: 0.75;
+
+                z-index: 1;
+            }
+            main ul li::after {
+                content: "";
+                pointer-events: none;
+                transition: 0.75s;
+                /* transition-delay: 0.25s; */
+                opacity: 0.5;
+
+                z-index: 2;
+            }
+            main ul li:hover::after {
+                transform: translate(10px, -10px);
+            }
+            main ul li a {
+                display: block;
+                
+                z-index: 3;
+            }
+            main ul li a img {
+                /* pointer-events: none; */
+                object-fit: cover;
+
+                transition: 0.5s;
+            }
+            main ul li:hover a img {
+                box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
+                transform: translate(20px, -20px);
+            }
+            main ul li#google::before, main ul li#google::after, main ul li#google a, main ul li#google a img { background-color: #ffffff; }
+            main ul li#facebook::before, main ul li#facebook::after, main ul li#facebook a, main ul li#facebook a img { background-color: #4267b2; }
+            main ul li#linkedin::before, main ul li#linkedin::after, main ul li#linkedin a, main ul li#linkedin a img { background-color: #0073b1; }
+            main ul li#github::before, main ul li#github::after, main ul li#github a, main ul li#github a img { background-color: #ffffff; }
